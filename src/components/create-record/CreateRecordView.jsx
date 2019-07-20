@@ -1,5 +1,6 @@
 import React from 'react';
 import DatePicker from "react-datepicker";
+import axios from 'axios';
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./CreateRecordView.css"
@@ -56,6 +57,7 @@ class CreateRecordView extends React.Component {
   handleSubmit(event) {
     console.log(this.state)
     event.preventDefault();
+    axios.post('localhost:8080/createRecord', this.state).then(response => console.log(response));
   }
 
   render() {
