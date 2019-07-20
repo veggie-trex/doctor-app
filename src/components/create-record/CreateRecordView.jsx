@@ -13,35 +13,26 @@ class CreateRecordView extends React.Component {
       name: '',
       type: '',
       doctor: '',
-      date: new Date(),
-      nextDate: new Date()
+      mnemonic: '',
+      password: '',
+      date: '',
+      nextDate: ''
     };
     this.handleChangeDate = this.handleChangeDate.bind(this);
     this.handleChangeNextDate = this.handleChangeNextDate.bind(this);
-    this.handleChangeType = this.handleChangeType.bind(this);
-    this.handleChangeDoctor = this.handleChangeDoctor.bind(this);
-    this.handleChangeName = this.handleChangeName.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChangeDoctor(event) {
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
     this.setState({
-      doctor: event.target.value
+      [name]: value
     });
   }
-
-  handleChangeName(event) {
-    this.setState({
-      name: event.target.value
-    });
-  }
-
-  handleChangeType(event) {
-    this.setState({
-      type: event.target.value
-    });
-  }
-
   handleChangeDate(date) {
     this.setState({
       date: date
@@ -55,7 +46,6 @@ class CreateRecordView extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state)
     event.preventDefault();
     axios.post('localhost:8080/createRecord', this.state).then(response => console.log(response));
   }
@@ -64,10 +54,11 @@ class CreateRecordView extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Create Immunization record</h1>
+        <h4>Fill record details</h4>
         <div className='form-group'>
           <label>
             Name:
-            <input className='form-control' type="text" value={this.state.value} onChange={this.handleChangeName} />
+            <input className='form-control' type="text" name="name" value={this.state.name} onChange={this.handleInputChange} />
           </label>
         </div>
         <div className='form-group'>
@@ -95,13 +86,26 @@ class CreateRecordView extends React.Component {
         <div className='form-group'>
           <label>
             Type:
-            <input className='form-control' type="text" value={this.state.value} onChange={this.handleChangeType} />
+            <input className='form-control' type="text" name="type" value={this.state.type} onChange={this.handleInputChange} />
           </label>
-          <div className='form-group'>
-          </div>
+        </div>
+        <div className='form-group'>
           <label>
             administered by:
-            <input className='form-control' type="text" value={this.state.doctor} onChange={this.handleChangeDoctor} />
+            <input className='form-control' type="text" name="doctor" value={this.state.doctor} onChange={this.handleInputChange} />
+          </label>
+        </div>
+        <h4>Sign the immunization record</h4>
+        <div className='form-group'>
+          <label>
+          mnemonic:
+            <input className='form-control' type="text" name="mnemonic" value={this.state.mnemonic} onChange={this.handleInputChange} />
+          </label>
+        </div>
+        <div className='form-group'>
+          <label>
+          password:
+            <input className='form-control' type="text" name="password" value={this.state.password} onChange={this.handleInputChange} />
           </label>
         </div>
         <div>
