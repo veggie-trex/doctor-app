@@ -20,7 +20,7 @@ class CreateRecordView extends React.Component {
     this.handleChangeDoctor = this.handleChangeDoctor.bind(this);
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    }
 
   handleChangeDoctor(event) {
     this.setState({
