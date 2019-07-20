@@ -1,7 +1,9 @@
 import React from 'react';
 import DatePicker from "react-datepicker";
+import axios from 'axios';
 
 import "react-datepicker/dist/react-datepicker.css";
+import "./CreateRecordView.css"
 
 class CreateRecordView extends React.Component {
 
@@ -20,7 +22,7 @@ class CreateRecordView extends React.Component {
     this.handleChangeDoctor = this.handleChangeDoctor.bind(this);
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  }
 
   handleChangeDoctor(event) {
     this.setState({
@@ -55,50 +57,55 @@ class CreateRecordView extends React.Component {
   handleSubmit(event) {
     console.log(this.state)
     event.preventDefault();
+    axios.post('localhost:8080/createRecord', this.state).then(response => console.log(response));
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <h1>Create Immunization record</h1>
-        <div>
+        <div className='form-group'>
           <label>
             Name:
-            <input type="text" value={this.state.value} onChange={this.handleChangeName} />
+            <input className='form-control' type="text" value={this.state.value} onChange={this.handleChangeName} />
           </label>
-        <div>
         </div>
+        <div className='form-group'>
           <label>
             Date:
-          <DatePicker
-              selected={this.state.date}
-              onChange={this.handleChangeDate}
-            />
+          <div className="form-control">
+              <DatePicker
+                selected={this.state.date}
+                onChange={this.handleChangeDate}
+              />
+            </div>
           </label>
         </div>
-        <div>
+        <div className='form-group'>
           <label>
             Next immunization date:
-          <DatePicker
-              selected={this.state.nextDate}
-              onChange={this.handleChangeNextDate}
-            />
+          <div className="form-control">
+              <DatePicker
+                selected={this.state.nextDate}
+                onChange={this.handleChangeNextDate}
+              />
+            </div>
           </label>
         </div>
-        <div>
+        <div className='form-group'>
           <label>
             Type:
-            <input type="text" value={this.state.value} onChange={this.handleChangeType} />
+            <input className='form-control' type="text" value={this.state.value} onChange={this.handleChangeType} />
           </label>
-        <div>
-        </div>
+          <div className='form-group'>
+          </div>
           <label>
             administered by:
-            <input type="text" value={this.state.doctor} onChange={this.handleChangeDoctor} />
+            <input className='form-control' type="text" value={this.state.doctor} onChange={this.handleChangeDoctor} />
           </label>
         </div>
         <div>
-          <input type="submit" value="Submit" />
+          <button className='btn btn-primary' type="submit" value="Submit">Submit</button>
         </div>
       </form>
     );
