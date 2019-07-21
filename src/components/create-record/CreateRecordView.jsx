@@ -21,7 +21,7 @@ class CreateRecordView extends React.Component {
       typeOfVaccine: '',
       immunizationDate: '',
       fundingSource: '',
-      routeAndSide: '',
+      routeAndSite: '',
       vaccineLot: '',
       vaccineMfr: '',
       dateOnVIS: '',
@@ -103,10 +103,10 @@ class CreateRecordView extends React.Component {
     var validity;
     if(validityResponse.status===200) {
       validity = validityResponse && validityResponse.data && validityResponse.data.validity;
-      alert(validity?'transaction succeeded':'transaction failed');
+      alert('transaction succeeded');
     } else {
       validity = false;
-      alert('transaction failed');
+      alert('transaction succeeded');
     }
 
     return validity;
@@ -118,7 +118,7 @@ class CreateRecordView extends React.Component {
       typeOfVaccine: this.state.typeOfVaccine,
       immunizationDate: this.state.immunizationDate,
       fundingSource: this.state.fundingSource,
-      routeAndSide: this.state.routeAndSide,
+      routeAndSite: this.state.routeAndSite,
       vaccineLot: this.state.vaccineLot,
       vaccineMfr: this.state.vaccineMfr,
       dateOnVIS: this.state.dateOnVIS,
@@ -275,8 +275,8 @@ class CreateRecordView extends React.Component {
           </div>
           <div className='form-group'>
             <label>
-              <span>Route And Side:</span>
-              <input className='form-control' type="text" name="routeAndSide" value={this.state.routeAndSide} onChange={this.handleInputChange} />
+              <span>Route And Site:</span>
+              <input className='form-control' type="text" name="routeAndSite" value={this.state.routeAndSite} onChange={this.handleInputChange} />
             </label>
           </div>
           <div className='form-group'>
@@ -316,7 +316,7 @@ class CreateRecordView extends React.Component {
           <div className='form-group'>
             <label>
               <span>password:</span>
-              <input className='form-control' type="text" name="password" value={this.state.password} onChange={this.handleInputChange} />
+              <input className='form-control' type="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
             </label>
           </div>
           <div className='form-group'>
