@@ -97,7 +97,7 @@ class CreateRecordView extends React.Component {
     console.log('serializedTx:', serializedTx);
     const sendTransactionResponse = await this.sendSerializedTxn(serializedTx);
     
-    const txnHash = sendTransactionResponse && sendTransactionResponse.data;
+    const txnHash = sendTransactionResponse && sendTransactionResponse.data && sendTransactionResponse.data.transactionHash;
     // 9.
     const validityResponse = await this.validateTxnHash(txnHash);
     var validity;
