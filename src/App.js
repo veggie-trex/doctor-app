@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+import { basePaths } from './networking/urls';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import CreateRecordView from './components/create-record/CreateRecordView'
 // import HomeView from './components/home/HomeView'
 
 function App() {
+  console.log(`API URL: ${basePaths.api}`)
   return (
     <div className="App">
       <Router>
