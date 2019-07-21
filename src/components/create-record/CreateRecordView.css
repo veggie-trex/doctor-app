@@ -48,3 +48,7 @@ h1, h4 {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
+
+.table-dark td, .table-dark th, .table-dark thead th {
+    vertical-align: middle;
+}
