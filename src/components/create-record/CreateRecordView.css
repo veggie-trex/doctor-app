@@ -1,3 +1,29 @@
 .react-datepicker-wrapper input {
     border: none;
 }
+
+label {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+label .form-control {
+    width: 300px;
+}
+
+.form-group {
+    margin-bottom: 4px;
+}
+
+.inputs {
+    width: 70%;
+    margin: 10px auto;
+    position: relative;
+    text-align: center;
+}
+
+h1, h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
