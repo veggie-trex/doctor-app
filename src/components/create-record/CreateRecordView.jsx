@@ -10,16 +10,19 @@ class CreateRecordView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      type: '',
-      doctor: '',
+      immunizationType: '',
+      typeOfVaccine: '',
+      immunizationDate: '',
+      fundingSource: '',
+      routeAndSide: '',
+      vaccineLot: '',
+      vaccineMfr: '',
+      dateOnVIS: '',
+      doctorId: '',
       mnemonic: '',
-      password: '',
-      date: '',
-      nextDate: ''
+      password: ''
     };
     this.handleChangeDate = this.handleChangeDate.bind(this);
-    this.handleChangeNextDate = this.handleChangeNextDate.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -35,13 +38,7 @@ class CreateRecordView extends React.Component {
   }
   handleChangeDate(date) {
     this.setState({
-      date: date
-    });
-  }
-
-  handleChangeNextDate(date) {
-    this.setState({
-      nextDate: date
+      immunizationDate: date
     });
   }
 
@@ -57,16 +54,22 @@ class CreateRecordView extends React.Component {
         <h4>Fill record details</h4>
         <div className='form-group'>
           <label>
-            Name:
-            <input className='form-control' type="text" name="name" value={this.state.name} onChange={this.handleInputChange} />
+            Immunization Type:
+            <input className='form-control' type="text" name="immunizationType" value={this.state.immunizationType} onChange={this.handleInputChange} />
           </label>
         </div>
         <div className='form-group'>
           <label>
-            Date:
+            Type Of Vaccine:
+            <input className='form-control' type="text" name="typeOfVaccine" value={this.state.typeOfVaccine} onChange={this.handleInputChange} />
+          </label>
+        </div>
+        <div className='form-group'>
+          <label>
+            Immunization Date:
           <div className="form-control">
               <DatePicker
-                selected={this.state.date}
+                selected={this.state.immunizationDate}
                 onChange={this.handleChangeDate}
               />
             </div>
@@ -74,37 +77,51 @@ class CreateRecordView extends React.Component {
         </div>
         <div className='form-group'>
           <label>
-            Next immunization date:
-          <div className="form-control">
-              <DatePicker
-                selected={this.state.nextDate}
-                onChange={this.handleChangeNextDate}
-              />
-            </div>
+            Funding Source:
+            <input className='form-control' type="text" name="fundingSource" value={this.state.fundingSource} onChange={this.handleInputChange} />
           </label>
         </div>
         <div className='form-group'>
           <label>
-            Type:
-            <input className='form-control' type="text" name="type" value={this.state.type} onChange={this.handleInputChange} />
+            Route And Side:
+            <input className='form-control' type="text" name="routeAndSide" value={this.state.routeAndSide} onChange={this.handleInputChange} />
           </label>
         </div>
         <div className='form-group'>
           <label>
-            administered by:
-            <input className='form-control' type="text" name="doctor" value={this.state.doctor} onChange={this.handleInputChange} />
+            Vaccine Lot:
+            <input className='form-control' type="text" name="vaccineLot" value={this.state.vaccineLot} onChange={this.handleInputChange} />
           </label>
         </div>
+        <div className='form-group'>
+          <label>
+            vaccine Mfr:
+            <input className='form-control' type="text" name="vaccineMfr" value={this.state.vaccineMfr} onChange={this.handleInputChange} />
+          </label>
+        </div>
+        <div className='form-group'>
+          <label>
+            Date on VIS:
+            <input className='form-control' type="text" name="dateOnVIS" value={this.state.dateOnVIS} onChange={this.handleInputChange} />
+          </label>
+        </div>
+        <div className='form-group'>
+          <label>
+            Vaccinator:
+            <input className='form-control' type="text" name="doctorId" value={this.state.doctorId} onChange={this.handleInputChange} />
+          </label>
+        </div>
+
         <h4>Sign the immunization record</h4>
         <div className='form-group'>
           <label>
-          mnemonic:
+            mnemonic:
             <input className='form-control' type="text" name="mnemonic" value={this.state.mnemonic} onChange={this.handleInputChange} />
           </label>
         </div>
         <div className='form-group'>
           <label>
-          password:
+            password:
             <input className='form-control' type="text" name="password" value={this.state.password} onChange={this.handleInputChange} />
           </label>
         </div>
