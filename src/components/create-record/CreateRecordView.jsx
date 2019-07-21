@@ -47,7 +47,7 @@ class CreateRecordView extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    axios.post('localhost:8080/createRecord', this.state).then(response => console.log(response));
+    axios.post(`${process.env.VEGGIE_T_REX_API}patients/records`, this.state).then(response => console.log(response));
   }
 
   render() {
