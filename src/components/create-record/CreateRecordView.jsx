@@ -259,7 +259,7 @@ class CreateRecordView extends React.Component {
           <div className='form-group'>
             <label>
               <span>Immunization Date:</span>
-              <div className="form-control">
+              <div className="form-control date">
                 <DatePicker
                   selected={this.state.immunizationDate}
                   onChange={this.handleChangeDate}
